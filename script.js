@@ -42,11 +42,9 @@ YES / CAUTION / NO with reason
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
   method: "POST",
   headers: {
-    "Authorization": `Bearer ${API_KEY}`,
-    "Content-Type": "application/json",
-    "HTTP-Referer": window.location.origin,
-    "X-Title": "AI Decision App"
-  },
+  "Authorization": `Bearer ${API_KEY}`,
+  "Content-Type": "application/json"
+},
   body: JSON.stringify({
     model: "meta-llama/llama-3-8b-instruct",
     messages: [{ role: "user", content: prompt }]
