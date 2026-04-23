@@ -1,5 +1,5 @@
-const API_KEY = "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";
-
+const API_KEY = "";
+const API_KEY = prompt("Enter your API Key:");
 let chart = null;
 
 // ================= ANALYZE =================
@@ -39,27 +39,33 @@ YES / CAUTION / NO with reason
 `;
 
   try {
-    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
   method: "POST",
+  mode: "cors",
   headers: {
-  "Authorization": `Bearer ${API_KEY}`,
-  "Content-Type": "application/json"
-},
+    "Authorization": `Bearer ${API_KEY}`,
+    "Content-Type": "application/json"
+  },
   body: JSON.stringify({
-    model: "meta-llama/llama-3-8b-instruct",
-    messages: [{ role: "user", content: prompt }]
+    model: "llama3-8b-8192",
+    messages: [
+      {
+        role: "user",
+        content: prompt
+      }
+    ]
   })
 });
 
 // ✅ CHECK IF API FAILED
-if (!res.ok) {
-  const errorText = await res.text();
+if (!response.ok) {
+  const errorText = await response.text();
   console.error("API ERROR:", errorText);
   alert("API failed: " + errorText);
   return;
 }
 
-const data = await res.json();
+const data = await response.json();
 
 // ✅ SAFE CHECK
 if (!data.choices || !data.choices[0]) {
