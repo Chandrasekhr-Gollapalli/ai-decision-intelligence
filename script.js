@@ -43,7 +43,9 @@ YES / CAUTION / NO with reason
       method: "POST",
       headers: {
         "Authorization": `Bearer ${API_KEY}`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://ai-decision-intelligence.vercel.app",
+        "X-Title": "AI Decision App"
       },
       body: JSON.stringify({
         model: "openai/gpt-3.5-turbo",
