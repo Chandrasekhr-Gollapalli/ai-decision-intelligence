@@ -40,21 +40,37 @@ YES / CAUTION / NO with reason
 
   try {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://ai-decision-intelligence.vercel.app",
-        "X-Title": "AI Decision App"
-      },
-      body: JSON.stringify({
-        model: "openai/gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }]
-      })
-    });
+  method: "POST",
+  headers: {
+    "Authorization": `Bearer ${API_KEY}`,
+    "Content-Type": "application/json",
+    "HTTP-Referer": "https://ai-decision-intelligence.vercel.app",
+    "X-Title": "AI Decision App"
+  },
+  body: JSON.stringify({
+    model: "openai/gpt-3.5-turbo",
+    messages: [{ role: "user", content: prompt }]
+  })
+});
 
-    const data = await res.json();
-    const text = data.choices[0].message.content;
+// ✅ CHECK IF API FAILED
+if (!res.ok) {
+  const errorText = await res.text();
+  console.error("API ERROR:", errorText);
+  alert("API failed: " + errorText);
+  return;
+}
+
+const data = await res.json();
+
+// ✅ SAFE CHECK
+if (!data.choices || !data.choices[0]) {
+  console.error(data);
+  alert("Invalid API response");
+  return;
+}
+
+const text = data.choices[0].message.content;
 
     parseAndRender(text);
     saveHistory(input);
