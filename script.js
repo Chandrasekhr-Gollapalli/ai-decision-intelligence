@@ -1,4 +1,4 @@
-const API_KEY = "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";
+const API_KEY = "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";
 
 let chart = null;
 
