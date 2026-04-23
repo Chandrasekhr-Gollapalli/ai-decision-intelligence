@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1f3c42, #2c5364);
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* IMPORTANT FIX */
+textarea {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 15px;
+  resize: none;
+  box-sizing: border-box; /* 🔥 IMPORTANT */
+}
+
+/* FIX DROPDOWN (CAREER BOX) */
+/* CAREER DROPDOWN FIX */
+select {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 15px;
+  margin-top: 12px;
+  box-sizing: border-box; /* 🔥 IMPORTANT */
+  border: none;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Analyze Button */
+.analyze-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+}
+
+.analyze-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+/* Clear Button */
+.clear-btn {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+.clear-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+}
+
+.loader {
+  margin: 20px auto;
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(255,255,255,0.2);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.hidden { display: none; }
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* SCORE */
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #444;
+  border-radius: 10px;
+}
+
+#progressBar {
+  height: 10px;
+  background: #00ffcc;
+  width: 0%;
+}
+
+/* SECTIONS */
+.section {
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+textarea {
+  margin-top: 10px;
+}
+
+select {
+  margin-top: 12px;
+}
+
+.buttons {
+  margin-top: 18px;
+}
+
+#finalDecision {
+  margin-bottom: 15px;
+}
+
+#copyBtn {
+  margin-top: 10px;
+}
+
+.green { background: rgba(0,255,150,0.2); }
+.red { background: rgba(255,80,80,0.2); }
+.yellow { background: rgba(255,200,0,0.2); }
+.blue { background: rgba(0,150,255,0.2); }
+
+
+/* ===== FINAL OVERRIDE FIX (PASTE LAST) ===== */
+
+/* Fix width + alignment */
+textarea, select {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Fix spacing between input → dropdown → buttons */
+textarea {
+  margin-top: 10px !important;
+}
+
+select {
+  margin-top: 12px !important;
+}
+
+/* Fix button alignment + spacing */
+.buttons {
+  margin-top: 18px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+/* Fix section spacing consistency */
+.section {
+  margin-top: 12px !important;
+}
+
+/* Fix FINAL DECISION → COPY BUTTON gap */
+#finalDecision {
+  margin-bottom: 20px !important;
+}
+
+#copyBtn {
+  margin-top: 20px !important;
+  align-self: flex-start;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Decision Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>🧠 AI Decision Intelligence</h1>
+
+  <textarea id="inputText" placeholder="Enter your decision..."></textarea>
+
+  <select id="type">
+    <option>Career</option>
+    <option>Business</option>
+    <option>Education</option>
+    <option>Finance</option>
+    <option>Personal Life</option>
+    <option>Technology</option>
+  </select>
+
+  <div class="buttons">
+    <button class="analyze-btn" onclick="analyze()">Analyze</button>
+<button class="clear-btn" onclick="clearAll()">Clear</button>
+  </div>
+
+  <div id="loader" class="loader hidden"></div>
+
+  <!-- SCORE -->
+  <div id="scoreBox" class="hidden">
+    <h3>Decision Score</h3>
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+    <p id="scoreText"></p>
+  </div>
+
+  <!-- CHART -->
+  <canvas id="chart"></canvas>
+
+  <!-- OUTPUT -->
+  <div id="output"></div>
+
+  <!-- HISTORY -->
+  <div id="historyBox">
+    <h3>Previous Decisions</h3>
+    <ul id="historyList"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
