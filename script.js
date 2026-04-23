@@ -44,7 +44,7 @@ YES / CAUTION / NO with reason
   headers: {
     "Authorization": `Bearer ${API_KEY}`,
     "Content-Type": "application/json",
-    "HTTP-Referer": "https://ai-decision-intelligence.vercel.app",
+    "HTTP-Referer": window.location.origin,
     "X-Title": "AI Decision App"
   },
   body: JSON.stringify({
